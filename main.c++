@@ -9,6 +9,8 @@
 
 #include <iostream>
 #include <locale>
+#include <string>
+#include <conio.h>
 
 using namespace std;
 
@@ -23,25 +25,57 @@ struct Filme{
                float duracao; //tempo do filme (min)
                int faixaet; //faixa etária
                float avaliacao; //nota crítica
-               bool disponível;  //(0-Não|1-Sim)
+               bool disponivel;  //(0-Não|1-Sim)
 
 };
-    Filme vetor[17];
+    const int C=3;
+    Filme vetor[C];
+    int quant=0;
+    novofilme 
+    
 
 void insercao(){
     system("cls");
+    if (quant>=C){
+        cout << "\n\n\t\tCatalogo cheio!\n\n";
+        return;
 
+    }
+    Filme novo;
 	cout << "\t\tInsira novo filme!\n\n";
+
 	cout << "\n";
     cout << "Nome: ";
+    getline(cin >> ws, novo.nome);
+
     cout << "ID: ";
+    cin >> novo.id;
+
     cout << "Ano de lançamento: ";
+    cin >> novo.ano;
+
     cout << "Preço: ";
+    cin >> novo.preco;
+
     cout << "Categoria: ";
+    cin >> novo.categoria;
+
     cout << "Duração (min): ";
+    cin >> novo.duracao;
+
     cout << "Faixa etária: ";
+    cin >> novo.faixaet;
+
     cout << "Avaliação (0-10): ";
+    cin >> novo.avaliacao;
+
     cout << "O filme está disponível?: ";
+    cin >> novo.disponivel;
+
+    vetor[quant] = novo;
+    quant++;
+
+    cout << "\n\n\t\tFilme inserido com sucesso!\n\n";
 };
 
 int main(){
@@ -65,15 +99,21 @@ int main(){
         cout <<"\t11 - Ordem decrescente de filmes por ano" << endl; // filme mais novo > filme mais antigo
         cout <<"\t12 - Valor total (R$) de todos os filmes e média por categoria" << endl;
         cout <<"\t13 - Remover filme com nome igual ao escolhido" << endl;
-        cout <<"\t0  - Sair"
+        cout <<"\t0  - Sair";
 
         cout << "\n\n\tInforme uma opção: ";
 	    cin >> op; 
 
         switch (op){
     
-        case 1:{insercao();getch();break;}
+        case 1:
+            insercao();
+            break;
+        
         case 2:
+            remoção();
+            break;
+
 
         default:
             break;
